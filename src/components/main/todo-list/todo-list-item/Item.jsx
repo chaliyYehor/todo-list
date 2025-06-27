@@ -13,6 +13,10 @@ export default function Item({ value, isDone, id, makeTodoDone, deleteTodo }) {
 		delApproveElement.current.classList.add('active')
 	}
 
+	function denyDeletition() {
+		delApproveElement.current.classList.remove('active')
+	}
+
 	return (
 		<li className={classList}>
 			<p>{value}</p>
@@ -21,14 +25,14 @@ export default function Item({ value, isDone, id, makeTodoDone, deleteTodo }) {
 				<i onClick={() => makeTodoDone(id)} className='fa-solid fa-check'></i>
 			</section>
 
-			<div ref={delApproveElement} className='deletition-approvement active'>
+			<div ref={delApproveElement} className='deletition-approvement'>
 				<span>Are you sure you want to delete this task?</span>
 				<section className='decisionBtns'>
-					<button className='approve'>
+					<button onClick={() => deleteTodo(id)} className='approve'>
 						<i className='fa-solid fa-check'></i>
 					</button>
-					<button className='decline'>
-						<i class='fa-solid fa-xmark'></i>
+					<button onClick={denyDeletition} className='decline'>
+						<i className='fa-solid fa-xmark'></i>
 					</button>
 				</section>
 			</div>
