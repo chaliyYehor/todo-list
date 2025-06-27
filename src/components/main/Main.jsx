@@ -6,9 +6,6 @@ import { useState } from 'react'
 export default function Main() {
 	const [allTodos, setAllTodos] = useState([])
 
-	console.log(allTodos);
-	
-
 	function makeTodoDone(id) {
 		setAllTodos(prevTodos =>
 			prevTodos.map(todo => {
@@ -37,7 +34,22 @@ export default function Main() {
 	return (
 		<main>
 			<Form setAllTodos={setAllTodos} />
-			<TodoList allTodos={allTodos} makeTodoDone={makeTodoDone} sortTodos={sortTodos} deleteTodo={deleteTodo} />
+			<section className='tools'>
+				<div className='filter'>
+					<i className='fa-solid fa-filter'></i>
+					<span>filter</span>
+				</div>
+				<div className='deleteAll'>
+					<i className='fa-solid fa-trash'></i>
+					<span>delete all</span>
+				</div>
+			</section>
+			<TodoList
+				allTodos={allTodos}
+				makeTodoDone={makeTodoDone}
+				sortTodos={sortTodos}
+				deleteTodo={deleteTodo}
+			/>
 		</main>
 	)
 }
