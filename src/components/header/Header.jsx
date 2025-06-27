@@ -1,9 +1,9 @@
-import './Header'
+import './Header.css'
 
 export default function Header() {
 	return (
 		<header>
-			<p>to-do list</p>
+			<p>todo list</p>
 		</header>
 	)
 }
