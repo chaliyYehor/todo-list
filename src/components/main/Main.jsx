@@ -6,8 +6,10 @@ import { useState } from 'react'
 export default function Main() {
 	const [allTodos, setAllTodos] = useState([])
 
+	console.log(allTodos);
+	
+
 	function makeTodoDone(id) {
-		console.log(1)
 		setAllTodos(prevTodos =>
 			prevTodos.map(todo => {
 				if (todo.id === id) {
@@ -26,10 +28,16 @@ export default function Main() {
 		})
 	}
 
+	function deleteTodo(id) {
+		setAllTodos(prevTodos => {
+			return prevTodos.filter(todo => todo.id !== id)
+		})
+	}
+
 	return (
 		<main>
 			<Form setAllTodos={setAllTodos} />
-			<TodoList allTodos={allTodos} makeTodoDone={makeTodoDone} sortTodos={sortTodos}/>
+			<TodoList allTodos={allTodos} makeTodoDone={makeTodoDone} sortTodos={sortTodos} deleteTodo={deleteTodo} />
 		</main>
 	)
 }
