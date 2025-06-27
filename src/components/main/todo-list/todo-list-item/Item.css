@@ -60,11 +60,32 @@ li.done {
 	transition: .4s;
 
 	opacity: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	gap: 10px;
 }
 
 .deletition-approvement.active {
 	opacity: 1;
 	z-index: 10;
+}
+
+.decisionBtns {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+
+	width: 50%;
+
+	button {
+		font-size: 2rem;
+
+		width: 100px;
+	}
 }
 
 .actions {
