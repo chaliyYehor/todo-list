@@ -1,0 +1,30 @@
+.tools {
+	width: 100%;
+
+	display: flex;
+
+	gap: 15px;
+
+	border-bottom: 2px solid rgb(27, 27, 27);
+
+	padding-block: 5px;
+}
+
+.tool-item {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+
+	color: gray;
+
+	transition: 0.2s;
+	cursor: pointer;
+	
+	&:hover {
+		color: white;
+	}
+}
+
+.filter {
+	margin-left: 10px;
+}
