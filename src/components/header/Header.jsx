@@ -2,6 +2,8 @@ import './Header'
 
 export default function Header() {
 	return (
-		<div>Header</div>
+		<header>
+			<p>to-do list</p>
+		</header>
 	)
 }
