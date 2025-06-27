@@ -17,12 +17,16 @@ export default function Main() {
 		)
 	}
 
-	function sortTodos(todos) {
+	function sortTodos() {
 		setAllTodos(prevTodos => {
 			return [...prevTodos].sort((a, b) => {
 				return a.isDone === b.isDone ? 0 : a.isDone ? 1 : -1
 			})
 		})
+	}
+
+	function deleteAll() {
+		setAllTodos([])
 	}
 
 	function deleteTodo(id) {
@@ -36,11 +40,11 @@ export default function Main() {
 			<Form setAllTodos={setAllTodos} />
 			{allTodos.length > 1 ? (
 				<section className='tools'>
-					<div className='filter tool-item'>
+					<div onClick={sortTodos} className='filter tool-item'>
 						<i className='fa-solid fa-filter'></i>
 						<span>filter</span>
 					</div>
-					<div className='deleteAll tool-item'>
+					<div onClick={deleteAll} className='deleteAll tool-item'>
 						<i className='fa-solid fa-trash'></i>
 						<span>delete all</span>
 					</div>
