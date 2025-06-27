@@ -34,20 +34,21 @@ export default function Main() {
 	return (
 		<main>
 			<Form setAllTodos={setAllTodos} />
-			<section className='tools'>
-				<div className='filter tool-item'>
-					<i className='fa-solid fa-filter'></i>
-					<span>filter</span>
-				</div>
-				<div className='deleteAll tool-item'>
-					<i className='fa-solid fa-trash'></i>
-					<span>delete all</span>
-				</div>
-			</section>
+			{allTodos.length > 1 ? (
+				<section className='tools'>
+					<div className='filter tool-item'>
+						<i className='fa-solid fa-filter'></i>
+						<span>filter</span>
+					</div>
+					<div className='deleteAll tool-item'>
+						<i className='fa-solid fa-trash'></i>
+						<span>delete all</span>
+					</div>
+				</section>
+			) : null}
 			<TodoList
 				allTodos={allTodos}
 				makeTodoDone={makeTodoDone}
-				sortTodos={sortTodos}
 				deleteTodo={deleteTodo}
 			/>
 		</main>

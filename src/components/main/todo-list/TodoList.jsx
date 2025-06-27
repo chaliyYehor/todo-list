@@ -4,7 +4,6 @@ import Item from './todo-list-item/Item'
 export default function TodoList({
 	allTodos,
 	makeTodoDone,
-	sortTodos,
 	deleteTodo,
 }) {
 	return (
