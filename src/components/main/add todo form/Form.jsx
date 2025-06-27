@@ -7,8 +7,8 @@ export default function Form({ setAllTodos }) {
 
 		if (getTodoValue.trim() !== '') {
 			setAllTodos(prevTodos => [
-				...prevTodos,
 				{ id: nanoid(), value: getTodoValue, isDone: false },
+				...prevTodos
 			])
 		}
 	}

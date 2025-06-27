@@ -8,18 +8,28 @@ export default function Main() {
 
 	function makeTodoDone(id) {
 		console.log(1)
-		setAllTodos(prevTodos => prevTodos.map(todo => {
-			if(todo.id === id) {
-				return {...todo, isDone: !todo.isDone}
-			}
-			return todo
-		}))
+		setAllTodos(prevTodos =>
+			prevTodos.map(todo => {
+				if (todo.id === id) {
+					return { ...todo, isDone: !todo.isDone }
+				}
+				return todo
+			})
+		)
+	}
+
+	function sortTodos(todos) {
+		setAllTodos(prevTodos => {
+			return [...prevTodos].sort((a, b) => {
+				return a.isDone === b.isDone ? 0 : a.isDone ? 1 : -1
+			})
+		})
 	}
 
 	return (
 		<main>
 			<Form setAllTodos={setAllTodos} />
-			<TodoList allTodos={allTodos} makeTodoDone={makeTodoDone}/>
+			<TodoList allTodos={allTodos} makeTodoDone={makeTodoDone} sortTodos={sortTodos}/>
 		</main>
 	)
 }
