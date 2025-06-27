@@ -1,13 +1,14 @@
 import Header from './components/header/Header'
+
 import './App.css'
 
 function App() {
+	return (
+		<>
+			<Header />
 
-  return (
-    <>
-      <Header />
-    </>
-  )
+		</>
+	)
 }
 
 export default App
