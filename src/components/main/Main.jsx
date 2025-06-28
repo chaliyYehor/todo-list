@@ -3,6 +3,7 @@ import TodoList from './todo-list/TodoList.jsx'
 import setLocalStorage from './setLocalStorage.js'
 import './Main.css'
 import { useEffect, useRef, useState } from 'react'
+import getLocalStorage from './getLocalStorage.js'
 
 export default function Main() {
 	const [allTodos, setAllTodos] = useState([])
@@ -10,6 +11,12 @@ export default function Main() {
 	const optionsList = useRef(null)
 
 	// LocalStorage
+
+	useEffect(() => {
+		if (localStorage.allTodos) {
+			setAllTodos(getLocalStorage())
+		}
+	}, [])
 
 	useEffect(() => {
 		if (allTodos.length > 0) {
@@ -53,9 +60,14 @@ export default function Main() {
 
 	function deleteAll() {
 		setAllTodos([])
+		localStorage.clear()
 	}
 
 	function deleteTodo(id) {
+		if (setAllTodos.length <= 1) {
+			localStorage.clear()
+		}
+		
 		setAllTodos(prevTodos => {
 			return prevTodos.filter(todo => todo.id !== id)
 		})
