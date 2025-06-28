@@ -7,7 +7,7 @@ export default function TodoList({
 	deleteTodo,
 }) {
 	return (
-		<ul>
+		<ul className='list-parent'>
 			{allTodos.map(todo => (
 				<Item
 					key={todo.id}

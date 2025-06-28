@@ -19,7 +19,7 @@
 
 	transition: 0.2s;
 	cursor: pointer;
-	
+
 	&:hover {
 		color: white;
 	}
@@ -27,4 +27,44 @@
 
 .filter {
 	margin-left: 10px;
+
+	position: relative;
+}
+
+.options {
+	position: absolute;
+
+	top: 5px;
+	left: 8px;
+
+	z-index: 20;
+
+	background-color: #242424;
+
+	list-style-type: none;
+	padding: 0;
+
+	width: max-content;
+
+	border-radius: 0 0 8px 8px;
+	border: 2px solid rgb(27, 27, 27);
+	border-top: 0;
+	
+	display: none;
+}
+
+.options > li {
+	margin: 10px 15px;
+
+	color: gray;
+
+	transition: .3s;
+
+	&:hover {
+		color: white;
+	}
+}
+
+.options.active {
+	display: block;
 }

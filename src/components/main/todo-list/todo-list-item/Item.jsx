@@ -11,10 +11,10 @@ export default function Item({
 	date,
 	time,
 }) {
-	const classList = clsx({
+	const classList = clsx('list-item', {
 		done: isDone,
 	})
-	
+
 	const delApproveElement = useRef(null)
 
 	function deleteHandle() {

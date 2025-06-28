@@ -1,4 +1,4 @@
-li {
+.list-item {
 	position: relative;
 
 	list-style-type: none;
@@ -39,7 +39,7 @@ li {
 	
 }
 
-li.done {
+.list-item.done {
 	background-color: rgb(24, 82, 24);
 }
 

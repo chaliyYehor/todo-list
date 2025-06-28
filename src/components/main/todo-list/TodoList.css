@@ -1,4 +1,4 @@
-ul {
+.list-parent {
 	display: flex;
 	flex-direction: column;
 
