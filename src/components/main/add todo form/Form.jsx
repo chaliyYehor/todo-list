@@ -7,7 +7,13 @@ export default function Form({ setAllTodos }) {
 
 		if (getTodoValue.trim() !== '') {
 			setAllTodos(prevTodos => [
-				{ id: nanoid(), value: getTodoValue, isDone: false },
+				{
+					id: nanoid(),
+					value: getTodoValue,
+					isDone: false,
+					date: getCurrentDateTime().date,
+					time: getCurrentDateTime().time,
+				},
 				...prevTodos,
 			])
 		}
