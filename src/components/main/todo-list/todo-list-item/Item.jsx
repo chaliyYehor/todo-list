@@ -2,11 +2,19 @@ import { useRef } from 'react'
 import './Item.css'
 import clsx from 'clsx'
 
-export default function Item({ value, isDone, id, makeTodoDone, deleteTodo }) {
+export default function Item({
+	value,
+	isDone,
+	id,
+	makeTodoDone,
+	deleteTodo,
+	date,
+	time,
+}) {
 	const classList = clsx({
 		done: isDone,
 	})
-
+	
 	const delApproveElement = useRef(null)
 
 	function deleteHandle() {
@@ -25,7 +33,7 @@ export default function Item({ value, isDone, id, makeTodoDone, deleteTodo }) {
 				<i onClick={() => makeTodoDone(id)} className='fa-solid fa-check'></i>
 			</section>
 
-			<div ref={delApproveElement} className='deletition-approvement'>
+			<section ref={delApproveElement} className='deletition-approvement'>
 				<span>Are you sure you want to delete this task?</span>
 				<section className='decisionBtns'>
 					<button onClick={() => deleteTodo(id)} className='approve'>
@@ -35,7 +43,11 @@ export default function Item({ value, isDone, id, makeTodoDone, deleteTodo }) {
 						<i className='fa-solid fa-xmark'></i>
 					</button>
 				</section>
-			</div>
+			</section>
+			<section className='date-info'>
+				<span className='date'>{date}</span>
+				<span className='time'>{time}</span>
+			</section>
 		</li>
 	)
 }

@@ -16,6 +16,8 @@ export default function TodoList({
 					value={todo.value}
 					id={todo.id}
 					isDone={todo.isDone}
+					date={todo.date}
+					time={todo.time}
 				/>
 			))}
 		</ul>
