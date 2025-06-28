@@ -5,6 +5,7 @@ import { useRef, useState } from 'react'
 
 export default function Main() {
 	const [allTodos, setAllTodos] = useState([])
+	const [olderFirst, setOlderFirst] = useState(true)
 	const optionsList = useRef(null)
 
 	function makeTodoDone(id) {
@@ -24,6 +25,21 @@ export default function Main() {
 				return a.isDone === b.isDone ? 0 : a.isDone ? 1 : -1
 			})
 		})
+	}
+
+	function sortTodosByDateAndTime() {
+		setAllTodos(prevTodos => {
+			return [...prevTodos].sort((a, b) => {
+				const dateA = new Date(
+					`${a.date.split('.').reverse().join('-')}T${a.time}`
+				)
+				const dateB = new Date(
+					`${b.date.split('.').reverse().join('-')}T${b.time}`
+				)
+				return olderFirst ? dateA - dateB : dateB - dateA
+			})
+		})
+		setOlderFirst(prevState => !prevState)
 	}
 
 	function deleteAll() {
@@ -53,7 +69,7 @@ export default function Main() {
 						</span>
 
 						<ul ref={optionsList} className='options'>
-							<li>By time</li>
+							<li onClick={sortTodosByDateAndTime}>By time</li>
 							<li onClick={sortTodosByCompletion}>By completion</li>
 						</ul>
 					</div>
