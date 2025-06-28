@@ -1,12 +1,21 @@
 import Form from './add todo form/Form.jsx'
 import TodoList from './todo-list/TodoList.jsx'
+import setLocalStorage from './setLocalStorage.js'
 import './Main.css'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function Main() {
 	const [allTodos, setAllTodos] = useState([])
 	const [olderFirst, setOlderFirst] = useState(true)
 	const optionsList = useRef(null)
+
+	// LocalStorage
+
+	useEffect(() => {
+		if (allTodos.length > 0) {
+			setLocalStorage(allTodos)
+		}
+	}, [allTodos])
 
 	function makeTodoDone(id) {
 		setAllTodos(prevTodos =>
