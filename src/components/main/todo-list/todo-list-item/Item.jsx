@@ -33,7 +33,7 @@ export default function Item({
 				<i onClick={() => makeTodoDone(id)} className='fa-solid fa-check'></i>
 			</section>
 
-			<section ref={delApproveElement} className='deletition-approvement'>
+			<section ref={delApproveElement} className='deletition-approvement active'>
 				<span>Are you sure you want to delete this task?</span>
 				<section className='decisionBtns'>
 					<button onClick={() => deleteTodo(id)} className='approve'>
