@@ -26,6 +26,8 @@
 
 	overflow: hidden;
 
+	animation: popUpAnim .4s alternate ease-in-out;
+
 	&:hover {
 		border-color: white;
 	}
@@ -36,7 +38,18 @@
 		white-space: pre-wrap;
 		word-break: break-word;
 	}
-	
+}
+
+@keyframes popUpAnim {
+	0% {
+		transform: translateX(-50%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
 }
 
 .list-item.done {
@@ -57,7 +70,7 @@
 	background-color: rgba(89, 89, 89, 0.22);
 	backdrop-filter: blur(2px);
 
-	transition: .4s;
+	transition: 0.4s;
 
 	opacity: 0;
 
@@ -124,7 +137,7 @@
 	bottom: 0;
 	left: 5px;
 
-	font-size: .8rem;
+	font-size: 0.8rem;
 
 	display: flex;
 	gap: 5px;
