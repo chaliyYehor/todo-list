@@ -39,7 +39,7 @@ export default function Form({ setAllTodos }) {
 					name='add-todo'
 					type='text'
 					className='add-todo'
-					placeholder='add a task...'
+					placeholder='Add a task...'
 				/>
 				<button type='submit'>add</button>
 			</div>
